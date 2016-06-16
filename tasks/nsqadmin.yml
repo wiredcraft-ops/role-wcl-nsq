@@ -5,6 +5,6 @@
         shell=/bin/false
 
 - name: nsqadmin upstart service
-  template: src=etc/init/nsqadmin.conf.j2 dest=/etc/init/nsqadmin.conf
+  template: src=etc/supervisor/conf.d/nsqadmin.conf.j2 dest=/etc/supervisor/conf.d/nsqadmin.conf
   notify:
     - restart nsqadmin

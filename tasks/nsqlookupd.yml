@@ -5,6 +5,6 @@
         shell=/bin/false
 
 - name: nsqlookupd upstart service
-  template: src=etc/init/nsqlookupd.conf.j2 dest=/etc/init/nsqlookupd.conf
+  template: src=etc/supervisor/conf.d/nsqlookupd.conf.j2 dest=/etc/supervisor/conf.d/nsqlookupd.conf
   notify:
     - restart nsqlookupd

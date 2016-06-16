@@ -12,6 +12,6 @@
         owner={{ nsq_nsqd_group }}
 
 - name: nsqd upstart service
-  template: src=etc/init/nsqd.conf.j2 dest=/etc/init/nsqd.conf
+  template: src=etc/supervisor/conf.d/nsqd.conf.j2 dest=/etc/supervisor/conf.d/nsqd.conf
   notify:
     - restart nsqd

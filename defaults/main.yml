@@ -48,8 +48,6 @@ nsq_nsqd_max_heartbeat_interval: 1m0s
 nsq_nsqd_data_path: "{{ nsq_data_path }}"
 nsq_nsqd_tls_cert:
 nsq_nsqd_tls_key:
-nsq_nsqd_filehandle_limit:
-nsq_nsqd_nproc:
 nsq_nsqd_max_body_size: 5123840
 nsq_nsqd_max_bytes_per_file: 104857600
 nsq_nsqd_max_message_size: 1024768
