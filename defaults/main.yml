@@ -20,8 +20,7 @@ nsq_binaries:
 nsq_data_path: /var/spool/nsq
 
 nsq_nsqadmin_server: false
-nsq_nsqadmin_user: nsqadmin
-nsq_nsqadmin_user: nsqadmin
+nsq_nsqadmin_user: nsqd
 nsq_nsqadmin_cmd: "{{ nsq_dir }}/nsqadmin"
 nsq_nsqadmin_http_port: 4171
 nsq_nsqadmin_interface: lo
@@ -69,7 +68,7 @@ nsq_nsqd_e2e_processing_latency_percentile: 1.0,0.99,0.95
 nsq_nsqd_e2e_processing_latency_window_time: 10m0s
 
 nsq_nsqlookupd_server: false
-nsq_nsqlookupd_user: nsqlookupd
+nsq_nsqlookupd_user: nsqd
 nsq_nsqlookupd_role: nsqlookupd
 nsq_nsqlookupd_cmd: "{{ nsq_dir }}/nsqlookupd"
 nsq_nsqlookupd_tcp_port: 4160
