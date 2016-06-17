@@ -5,9 +5,16 @@
     system=yes
     shell=/bin/false
 
-- name: nsqlookupd upstart service
+- name: Add supervisor config for nsqlookupd
   template:
     src=etc/supervisor/conf.d/nsqlookupd.conf.j2
     dest=/etc/supervisord.d/nsqlookupd.ini
+  notify:
+    - restart nsqlookupd
+
+- name: Add config for nsqlookupd
+  template:
+    src=etc/nsqlookupd.conf.j2
+    dest=/etc/nsqlookupd.conf
   notify:
     - restart nsqlookupd

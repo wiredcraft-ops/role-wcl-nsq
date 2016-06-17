@@ -13,9 +13,16 @@
     group={{ nsq_nsqd_user }}
     owner={{ nsq_nsqd_group }}
 
-- name: nsqd upstart service
+- name: Add supervisor config for nsqd
   template:
     src=etc/supervisor/conf.d/nsqd.conf.j2
     dest=/etc/supervisord.d/nsqd.ini
+  notify:
+    - restart nsqd
+
+- name: Add config for nsqd
+  template:
+    src=etc/nsqd.conf.j2
+    dest=/etc/nsqd.conf
   notify:
     - restart nsqd

@@ -1,0 +1,13 @@
+lookupd-http-address = "{% for host in groups[nsq_nsqlookupd_role] -%}{{ hostvars[host]['ansible_' + nsq_nsqd_interface]['ipv4']['address'] }}:{{ nsq_nsqlookupd_http_port }}{% if not loop.last %},{% endif %}{% endfor -%}"
+
+use-statsd-prefixes = "{{ nsq_nsqadmin_use_statsd_prefixes }}"
+
+statsd-interval = "{{ nsq_nsqadmin_statsd_interval }}"
+
+proxy-graphite = "{{ nsq_nsqadmin_proxy_graphite }}"
+
+{% if nsq_nsqadmin_graphite_url -%}
+    graphite-url = "{{ nsq_nsqadmin_graphite_url }}"
+{% endif -%}
+
+http-address = "{{ nsq_nsqadmin_http_address }}"
