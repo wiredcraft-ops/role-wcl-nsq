@@ -2,7 +2,7 @@ data-path = "{{ nsq_nsqd_data_path }}"
 
 http-address = "{{ nsq_nsqd_http_address }}"
 
-lookupd-tcp-address = "{% for host in groups[nsq_nsqlookupd_role] -%}{{ hostvars[host]['ansible_' + nsq_nsqlookupd_interface]['ipv4']['address'] }}:{{ nsq_nsqlookupd_tcp_port }}{% if not loop.last %},{% endif %}{% endfor -%}"
+nsqlookupd_tcp_addresses = [{% for host in groups[nsq_nsqlookupd_role] -%}"{{ hostvars[host]['ansible_' + nsq_nsqlookupd_interface]['ipv4']['address'] }}:{{ nsq_nsqlookupd_tcp_port }}"{% if not loop.last %},{% endif %}{% endfor -%}]
 
 e2e-processing-latency-percentile = "{{ nsq_nsqd_e2e_processing_latency_percentile }}"
 
