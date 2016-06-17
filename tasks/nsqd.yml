@@ -1,17 +1,21 @@
 ---
 - name: add nsqd user
-  user: name={{ nsq_nsqd_user }}
-        system=yes
-        shell=/bin/false
+  user:
+    name={{ nsq_nsqd_user }}
+    system=yes
+    shell=/bin/false
 
 - name: create path for on-disk queue files
-  file: path={{ nsq_nsqd_data_path }}
-        state=directory
-        mode=0770
-        group={{ nsq_nsqd_user }}
-        owner={{ nsq_nsqd_group }}
+  file:
+    path={{ nsq_nsqd_data_path }}
+    state=directory
+    mode=0770
+    group={{ nsq_nsqd_user }}
+    owner={{ nsq_nsqd_group }}
 
 - name: nsqd upstart service
-  template: src=etc/supervisor/conf.d/nsqd.conf.j2 dest=/etc/supervisor/conf.d/nsqd.conf
+  template:
+    src=etc/supervisor/conf.d/nsqd.conf.j2
+    dest=/etc/supervisord.d/nsqd.ini
   notify:
     - restart nsqd

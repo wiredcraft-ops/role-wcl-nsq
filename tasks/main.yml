@@ -7,6 +7,16 @@
              src={{ nsq_download_dir }}/nsq.zip
              dest={{ nsq_download_dir }}
 
+- name: Install supervisor
+  package:
+    name=supervisor
+    state=present
+
+- name: Start supervisor
+  service:
+    name=supervisord
+    state=started
+
 # TODO(retr0h): Sucks the `copy` module doesn't do this.
 #               We get idempotency from `rsync(1)`.
 - name: copy binaries from archive into nsq dir

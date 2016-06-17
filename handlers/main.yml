@@ -1,9 +1,20 @@
 ---
 - name: restart nsqd
-  service: name=nsqd state=restarted enabled=yes
+  supervisorctl:
+    name=nsqd
+    state=restarted
 
 - name: restart nsqadmin
-  service: name=nsqadmin state=restarted enabled=yes
+  supervisorctl:
+    name=nsqadmin
+    state=restarted
 
 - name: restart nsqlookupd
-  service: name=nsqlookupd state=restarted enabled=yes
+  supervisorctl:
+    name=nsqlookupd
+    state=restarted
+
+- name: restart supervisor
+  service:
+    name=supervisord
+    state=restarted
