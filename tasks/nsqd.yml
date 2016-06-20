@@ -10,8 +10,8 @@
     path={{ nsq_nsqd_data_path }}
     state=directory
     mode=0770
-    group={{ nsq_nsqd_user }}
-    owner={{ nsq_nsqd_group }}
+    owner={{ nsq_nsqd_user }}
+    group={{ nsq_nsqd_group }}
 
 - name: Add supervisor config for nsqd
   template:

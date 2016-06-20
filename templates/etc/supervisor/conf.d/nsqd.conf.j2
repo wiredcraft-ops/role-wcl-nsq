@@ -1,5 +1,7 @@
 [program:nsqd]
 
+username={{ nsq_nsqlookupd_user }}
+
 command={{ nsq_nsqd_cmd }} -config=/etc/nsqd.conf
 
 stdout_logfile=/var/log/nsqd.log
