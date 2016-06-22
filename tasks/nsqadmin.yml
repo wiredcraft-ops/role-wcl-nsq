@@ -1,10 +1,20 @@
 ---
 - name: add nsqadmin user
-  user: name={{ nsq_nsqadmin_user }}
-        system=yes
-        shell=/bin/false
+  user:
+    name={{ nsq_nsqadmin_user }}
+    system=yes
+    shell=/bin/false
 
-- name: nsqadmin upstart service
-  template: src=etc/init/nsqadmin.conf.j2 dest=/etc/init/nsqadmin.conf
+- name: Add supervisor config for nsqadmin
+  template:
+    src=etc/supervisor/conf.d/nsqadmin.conf.j2
+    dest=/etc/supervisord.d/nsqadmin.ini
+  notify:
+    - restart nsqadmin
+
+- name: Add config for nsqadmin
+  template:
+    src=etc/nsqadmin.conf.j2
+    dest=/etc/nsqadmin.conf
   notify:
     - restart nsqadmin

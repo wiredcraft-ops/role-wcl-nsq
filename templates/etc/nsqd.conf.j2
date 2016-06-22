@@ -1,0 +1,49 @@
+data_path = "{{ nsq_nsqd_data_path }}"
+
+http_address = "{{ nsq_nsqd_http_address }}"
+
+nsqlookupd_tcp_addresses = [{% for host in groups[nsq_nsqlookupd_role] -%}"{{ hostvars[host]['ansible_' + nsq_nsqlookupd_interface]['ipv4']['address'] }}:{{ nsq_nsqlookupd_tcp_port }}"{% if not loop.last %},{% endif %}{% endfor -%}]
+
+e2e_processing_latency_percentiles = "{{ nsq_nsqd_e2e_processing_latency_percentile }}"
+
+e2e_processing_latency_window_time = "{{ nsq_nsqd_e2e_processing_latency_window_time }}"
+
+{% if nsq_nsqd_tls_key -%}
+    tls_cert = "{{ nsq_nsqd_tls_key }}"
+{% endif -%}
+
+{% if nsq_nsqd_tls_cert -%}
+    tls_cert = "{{ nsq_nsqd_tls_cert }}"
+{% endif -%}
+
+max_body_size = "{{ nsq_nsqd_max_body_size }}"
+
+max_bytes_per_file = "{{ nsq_nsqd_max_bytes_per_file }}"
+
+max_msg_size = "{{ nsq_nsqd_max_message_size }}"
+
+max_msg_timeout = "{{ nsq_nsqd_max_msg_timeout }}"
+
+max_rdy_count = "{{ nsq_nsqd_max_rdy_count }}"
+
+mem_queue_size = "{{ nsq_nsqd_mem_queue_size }}"
+
+msg_timeout = "{{ nsq_nsqd_msg_timeout }}"
+
+statsd_address = "{{ nsq_nsqd_statsd_address }}"
+
+statsd_interval = "{{ nsq_nsqd_statsd_interval }}"
+
+statsd_mem_stats = "{{ nsq_nsqd_statsd_mem_stats }}"
+
+statsd_prefix = "{{ nsq_nsqd_statsd_prefix }}"
+
+sync_every = "{{ nsq_nsqd_sync_every }}"
+
+sync_timeout = "{{ nsq_nsqd_sync_timeout }}"
+
+tcp_address = "{{ nsq_nsqd_tcp_address }}"
+
+broadcast_address = "{{ nsq_nsqd_broadcast_address }}"
+
+verbose = "{{ nsq_nsqd_verbose }}"

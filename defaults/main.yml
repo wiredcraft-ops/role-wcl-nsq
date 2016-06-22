@@ -1,6 +1,6 @@
 ---
-nsq_version: 0.2.30
-nsq_go_version: go1.3
+nsq_version: 0.3.8
+nsq_go_version: go1.6.2
 nsq_arch: linux-amd64
 nsq_release: "nsq-{{ nsq_version }}.{{ nsq_arch }}.{{ nsq_go_version}}"
 nsq_download_url: "https://s3.amazonaws.com/bitly-downloads/nsq/nsq-{{ nsq_version }}.{{ nsq_arch }}.{{ nsq_go_version }}.tar.gz"
@@ -20,7 +20,6 @@ nsq_binaries:
 nsq_data_path: /var/spool/nsq
 
 nsq_nsqadmin_server: false
-nsq_nsqadmin_user: nsqadmin
 nsq_nsqadmin_user: nsqadmin
 nsq_nsqadmin_cmd: "{{ nsq_dir }}/nsqadmin"
 nsq_nsqadmin_http_port: 4171
@@ -48,8 +47,6 @@ nsq_nsqd_max_heartbeat_interval: 1m0s
 nsq_nsqd_data_path: "{{ nsq_data_path }}"
 nsq_nsqd_tls_cert:
 nsq_nsqd_tls_key:
-nsq_nsqd_filehandle_limit:
-nsq_nsqd_nproc:
 nsq_nsqd_max_body_size: 5123840
 nsq_nsqd_max_bytes_per_file: 104857600
 nsq_nsqd_max_message_size: 1024768

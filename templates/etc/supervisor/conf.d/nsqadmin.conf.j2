@@ -1,0 +1,8 @@
+[program:nsqadmin]
+
+user={{ nsq_nsqadmin_user }}
+
+command={{ nsq_nsqadmin_cmd }} -config=/etc/nsqadmin.conf
+
+stdout_logfile=/var/log/nsqadmin.log
+stderr_logfile=/var/log/nsqadmin.log

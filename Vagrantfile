@@ -1,7 +1,8 @@
 # encoding: UTF-8
 
 Vagrant.configure('2') do |config|
-  config.vm.box = 'hashicorp/precise64'
+  config.vm.box = 'centos/7'
+  config.vm.synced_folder ".", "/home/vagrant/sync", disabled: true
   config.vm.provision 'ansible' do |ansible|
     ansible.playbook = 'vagrant/site.yml'
     ansible.limit = 'all'
@@ -15,7 +16,8 @@ Vagrant.configure('2') do |config|
     }
     ansible.extra_vars = {
       nsq_nsqd_interface: 'eth1',
-      nsq_nsqadmin_interface: 'eth1'
+      nsq_nsqadmin_interface: 'eth1',
+      nsq_nsqlookupd_interface: 'eth1'
     }
   end
 
