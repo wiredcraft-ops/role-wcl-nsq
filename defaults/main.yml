@@ -27,7 +27,7 @@ nsq_nsqadmin_interface: lo
 nsq_nsqadmin_addr: "{{ hostvars[inventory_hostname]['ansible_' + nsq_nsqd_interface]['ipv4']['address'] }}"
 nsq_nsqadmin_graphite_url:
 nsq_nsqadmin_proxy_graphite: true
-nsq_nsqadmin_http_address: "{{ nsq_nsqadmin_addr }}:{{ nsq_nsqadmin_http_port }}"
+nsq_nsqadmin_http_address:
 nsq_nsqadmin_notification_http_endpoint: nil
 nsq_nsqadmin_nsqd_http_address: []
 nsq_nsqadmin_use_statsd_prefixes: true
@@ -42,7 +42,7 @@ nsq_nsqd_tcp_port: 4150
 nsq_nsqd_http_port: 4151
 nsq_nsqd_interface: lo
 nsq_nsqd_addr: "{{ hostvars[inventory_hostname]['ansible_' + nsq_nsqd_interface]['ipv4']['address'] }}"
-nsq_nsqd_http_address: "{{ nsq_nsqd_addr }}:{{ nsq_nsqd_http_port }}"
+nsq_nsqd_http_address:
 nsq_nsqd_max_heartbeat_interval: 1m0s
 nsq_nsqd_data_path: "{{ nsq_data_path }}"
 nsq_nsqd_tls_cert:
@@ -56,14 +56,14 @@ nsq_nsqd_max_rdy_count: 2500
 nsq_nsqd_msg_timeout: 15m0s
 nsq_nsqd_statsd_address: 127.0.0.1:8125
 nsq_nsqd_statsd_interval: 30
-nsq_nsqd_statsd_mem_stats: true
+nsq_nsqd_statsd_mem_stats: false
 nsq_nsqd_statsd_prefix: nsq.%s
 nsq_nsqd_sync_every: 2500
 nsq_nsqd_sync_timeout: 2s
-nsq_nsqd_tcp_address: "{{ nsq_nsqd_addr }}:{{ nsq_nsqd_tcp_port }}"
+nsq_nsqd_tcp_address:
 nsq_nsqd_verbose: false
 nsq_nsqd_worker_id: 0
-nsq_nsqd_broadcast_address: "{{ nsq_nsqd_addr }}"
+nsq_nsqd_broadcast_address:
 nsq_nsqd_e2e_processing_latency_percentile: 1.0,0.99,0.95
 nsq_nsqd_e2e_processing_latency_window_time: 10m0s
 
@@ -75,9 +75,9 @@ nsq_nsqlookupd_tcp_port: 4160
 nsq_nsqlookupd_http_port: 4161
 nsq_nsqlookupd_interface: lo
 nsq_nsqlookupd_addr: "{{ hostvars[inventory_hostname]['ansible_' + nsq_nsqlookupd_interface]['ipv4']['address'] }}"
-nsq_nsqlookupd_http_address: "{{ nsq_nsqlookupd_addr }}:{{ nsq_nsqlookupd_http_port }}"
+nsq_nsqlookupd_http_address:
 nsq_nsqlookupd_inactive_producer_timeout: 5m0s
-nsq_nsqlookupd_tcp_address: "{{ nsq_nsqlookupd_addr }}:{{ nsq_nsqlookupd_tcp_port }}"
-nsq_nsqlookupd_broadcast_address: "{{ nsq_nsqlookupd_addr }}"
+nsq_nsqlookupd_tcp_address:
+nsq_nsqlookupd_broadcast_address:
 nsq_nsqlookupd_tombstone_lifetime: 45s
 nsq_nsqlookupd_verbose: false

@@ -1,6 +1,6 @@
 data_path = "{{ nsq_nsqd_data_path }}"
 
-{% nsq_nsqd_http_address is defined and nsq_nsqd_http_address %}
+{% if nsq_nsqd_http_address is defined and nsq_nsqd_http_address %}
     http_address = "{{ nsq_nsqd_http_address }}"
 {% endif %}
 
