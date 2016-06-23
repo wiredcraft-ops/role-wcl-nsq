@@ -81,3 +81,5 @@ nsq_nsqlookupd_tcp_address:
 nsq_nsqlookupd_broadcast_address:
 nsq_nsqlookupd_tombstone_lifetime: 45s
 nsq_nsqlookupd_verbose: false
+
+use_ip: yes

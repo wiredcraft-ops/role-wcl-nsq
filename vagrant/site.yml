@@ -9,6 +9,7 @@
       nsq_nsqadmin_server: true
       nsq_nsqd_server: true
       nsq_nsqlookupd_server: true
+      use_ip: false
 
 - hosts: all
   tasks:
