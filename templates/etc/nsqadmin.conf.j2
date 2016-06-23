@@ -6,10 +6,10 @@ statsd_interval = "{{ nsq_nsqadmin_statsd_interval }}"
 
 proxy_graphite = "{{ nsq_nsqadmin_proxy_graphite }}"
 
-{% if nsq_nsqadmin_graphite_url -%}
+{% if nsq_nsqadmin_graphite_url is defined and nsq_nsqadmin_graphite_url %}
     graphite_url = "{{ nsq_nsqadmin_graphite_url }}"
-{% endif -%}
+{% endif %}
 
-{% if nsq_nsqadmin_http_address %}
+{% if nsq_nsqadmin_http_address is defined and nsq_nsqadmin_http_address %}
     http_address = "{{ nsq_nsqadmin_http_address }}"
 {% endif %}
