@@ -18,6 +18,7 @@
 - name: Start supervisor
   service:
     name=supervisord
+    enabled=yes
     state=started
 
 - name: copy binaries from archive into nsq dir
