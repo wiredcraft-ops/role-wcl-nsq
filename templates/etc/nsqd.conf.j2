@@ -1,18 +1,25 @@
 data_path = "{{ nsq_nsqd_data_path }}"
 
-http_address = "{{ nsq_nsqd_http_address }}"
+{% if nsq_nsqd_http_address is defined and nsq_nsqd_http_address -%}
+    http_address = "{{ nsq_nsqd_http_address }}"
+{% endif -%}
 
-nsqlookupd_tcp_addresses = [{% for host in groups[nsq_nsqlookupd_role] -%}"{{ hostvars[host]['ansible_' + nsq_nsqlookupd_interface]['ipv4']['address'] }}:{{ nsq_nsqlookupd_tcp_port }}"{% if not loop.last %},{% endif %}{% endfor -%}]
+{% if use_ip -%}
+    nsqlookupd_tcp_addresses = [{% for host in groups[nsq_nsqlookupd_role] -%}"{{ hostvars[host]['ansible_' + nsq_nsqlookupd_interface]['ipv4']['address'] }}:{{ nsq_nsqlookupd_tcp_port }}"{% if not loop.last %},{% endif %}{% endfor -%}]
+{% else -%}
+    nsqlookupd_tcp_addresses = [{% for host in groups[nsq_nsqlookupd_role] -%}"{{ host }}:{{ nsq_nsqlookupd_tcp_port }}"{% if not loop.last %},{% endif %}{% endfor -%}]
+{% endif -%}
+
 
 e2e_processing_latency_percentiles = "{{ nsq_nsqd_e2e_processing_latency_percentile }}"
 
 e2e_processing_latency_window_time = "{{ nsq_nsqd_e2e_processing_latency_window_time }}"
 
-{% if nsq_nsqd_tls_key -%}
+{% if nsq_nsqd_tls_key is defined and nsq_nsqd_tls_key -%}
     tls_cert = "{{ nsq_nsqd_tls_key }}"
 {% endif -%}
 
-{% if nsq_nsqd_tls_cert -%}
+{% if nsq_nsqd_tls_cert is defined and nsq_nsqd_tls_cert -%}
     tls_cert = "{{ nsq_nsqd_tls_cert }}"
 {% endif -%}
 
@@ -42,8 +49,12 @@ sync_every = "{{ nsq_nsqd_sync_every }}"
 
 sync_timeout = "{{ nsq_nsqd_sync_timeout }}"
 
-tcp_address = "{{ nsq_nsqd_tcp_address }}"
+{% if nsq_nsqd_tcp_address is defined and nsq_nsqd_tcp_address -%}
+    tcp_address = "{{ nsq_nsqd_tcp_address }}"
+{% endif -%}
 
-broadcast_address = "{{ nsq_nsqd_broadcast_address }}"
+{% if nsq_nsqd_broadcast_address is defined and nsq_nsqd_broadcast_address -%}
+    broadcast_address = "{{ nsq_nsqd_broadcast_address }}"
+{% endif -%}
 
 verbose = "{{ nsq_nsqd_verbose }}"

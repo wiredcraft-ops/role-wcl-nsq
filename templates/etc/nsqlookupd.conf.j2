@@ -1,6 +1,16 @@
-http_address = "{{ nsq_nsqlookupd_http_address }}"
+{% if nsq_nsqlookupd_http_address is defined and nsq_nsqlookupd_http_address -%}
+    http_address = "{{ nsq_nsqlookupd_http_address }}"
+{% endif -%}
+
 inactive_producer_timeout = "{{ nsq_nsqlookupd_inactive_producer_timeout }}"
-tcp_address = "{{ nsq_nsqlookupd_tcp_address }}"
-broadcast_address = "{{ nsq_nsqlookupd_broadcast_address }}"
+
+{% if nsq_nsqlookupd_tcp_address is defined and nsq_nsqlookupd_tcp_address -%}
+    tcp_address = "{{ nsq_nsqlookupd_tcp_address }}"
+{% endif -%}
+
+{% if nsq_nsqlookupd_broadcast_address is defined and nsq_nsqlookupd_broadcast_address -%}
+    broadcast_address = "{{ nsq_nsqlookupd_broadcast_address }}"
+{% endif -%}
+
 tombstone_lifetime = "{{ nsq_nsqlookupd_tombstone_lifetime }}"
 verbose = "{{ nsq_nsqlookupd_verbose }}"

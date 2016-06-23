@@ -7,16 +7,9 @@
   roles:
     - role: nsq
       nsq_nsqadmin_server: true
-
-- hosts: nsqd
-  roles:
-    - role: nsq
       nsq_nsqd_server: true
-
-- hosts: nsqlookupd
-  roles:
-    - role: nsq
       nsq_nsqlookupd_server: true
+      use_ip: false
 
 - hosts: all
   tasks:
