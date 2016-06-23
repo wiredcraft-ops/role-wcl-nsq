@@ -1,6 +1,8 @@
 data_path = "{{ nsq_nsqd_data_path }}"
 
-http_address = "{{ nsq_nsqd_http_address }}"
+{% nsq_nsqd_http_address %}
+    http_address = "{{ nsq_nsqd_http_address }}"
+{% endif %}
 
 nsqlookupd_tcp_addresses = [{% for host in groups[nsq_nsqlookupd_role] -%}"{{ hostvars[host]['ansible_' + nsq_nsqlookupd_interface]['ipv4']['address'] }}:{{ nsq_nsqlookupd_tcp_port }}"{% if not loop.last %},{% endif %}{% endfor -%}]
 
@@ -42,8 +44,12 @@ sync_every = "{{ nsq_nsqd_sync_every }}"
 
 sync_timeout = "{{ nsq_nsqd_sync_timeout }}"
 
-tcp_address = "{{ nsq_nsqd_tcp_address }}"
+{% if nsq_nsqd_tcp_address %}
+    tcp_address = "{{ nsq_nsqd_tcp_address }}"
+{% endif %}
 
-broadcast_address = "{{ nsq_nsqd_broadcast_address }}"
+{% if nsq_nsqd_broadcast_address %}
+    broadcast_address = "{{ nsq_nsqd_broadcast_address }}"
+{% endif %}
 
 verbose = "{{ nsq_nsqd_verbose }}"

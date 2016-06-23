@@ -10,4 +10,6 @@ proxy_graphite = "{{ nsq_nsqadmin_proxy_graphite }}"
     graphite_url = "{{ nsq_nsqadmin_graphite_url }}"
 {% endif -%}
 
-http_address = "{{ nsq_nsqadmin_http_address }}"
+{% if nsq_nsqadmin_http_address %}
+    http_address = "{{ nsq_nsqadmin_http_address }}"
+{% endif %}
