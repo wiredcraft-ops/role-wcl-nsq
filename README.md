@@ -27,23 +27,17 @@ None
 Example Playbook
 ----------------
 
-Install nsqadmin on given set of nodes:
+This playbook will install nsqadmin, nsqd, nsqlookupd to each machine.
 
-    - hosts: nsqadmin
+if `use_ip` set to `true`, then the configuration will use ip address to locate the services, if `false` use the hostname.
+
+    - hosts: all
       roles:
-        - { role: nsq, nsq_nsqadmin_server: true }
-
-Install nsqd on given set of nodes:
-
-    - hosts: nsq
-      roles:
-        - { role: nsq, nsq_nsqd_server: true }
-
-Install nsqlookupd on given set of nodes:
-
-    - hosts: nsqlookupd
-      roles:
-        - { role: nsq, nsq_nsqlookupd_server: true }
+        - role: nsq
+          nsq_nsqadmin_server: true
+          nsq_nsqd_server: true
+          nsq_nsqlookupd_server: true
+          use_ip: false
 
 License
 -------

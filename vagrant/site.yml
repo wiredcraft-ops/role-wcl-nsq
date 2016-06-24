@@ -1,9 +1,6 @@
 ---
-- hosts: all
-  roles:
-    - wcl-common
 
-- hosts: nsqadmin
+- hosts: nsq
   roles:
     - role: nsq
       nsq_nsqadmin_server: true

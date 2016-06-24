@@ -10,6 +10,7 @@ Vagrant.configure('2') do |config|
     ansible.host_key_checking = false
     # ansible.verbose = "vvv"
     ansible.groups = {
+      'nsq' => ['nsqd-1', 'nsqd-2', 'nsqd-3'],
       'nsqadmin' => ['nsqd-1', 'nsqd-2', 'nsqd-3'],
       'nsqd' => ['nsqd-1', 'nsqd-2', 'nsqd-3'],
       'nsqlookupd' => ['nsqd-1', 'nsqd-2', 'nsqd-3']
