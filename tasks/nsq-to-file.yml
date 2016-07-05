@@ -1,0 +1,15 @@
+---
+- name: Make sure data storage foloder for nsq-to-file exists
+  file:
+    path="{{ nsq_to_file_folder }}"
+    owner="{{ nsq_to_file_user }}"
+    group="{{ nsq_to_file_group }}"
+    state=directory
+    mode=755
+
+- name: Add supervisor config for nsqd
+  template:
+    src=etc/supervisor/conf.d/nsq-to-file.conf.j2
+    dest=/etc/supervisord.d/nsq-to-file.ini
+  notify:
+    - restart nsq-to-file

@@ -36,3 +36,6 @@
 
 - include: nsqlookupd.yml
   when: nsq_nsqlookupd_server
+
+- include: nsq-to-file.yml
+  when: nsq_nsq_to_file_server
