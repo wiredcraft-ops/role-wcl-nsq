@@ -35,6 +35,7 @@ nsq_nsqadmin_verbose: false
 nsq_nsqadmin_statsd_interval: 30s
 
 nsq_nsqd_server: false
+nsq_nsqd_role: nsqd
 nsq_nsqd_user: nsqd
 nsq_nsqd_group: nsqd
 nsq_nsqd_cmd: "{{ nsq_dir }}/nsqd"
@@ -81,5 +82,12 @@ nsq_nsqlookupd_tcp_address:
 nsq_nsqlookupd_broadcast_address:
 nsq_nsqlookupd_tombstone_lifetime: 45s
 nsq_nsqlookupd_verbose: false
+
+nsq_to_file_cmd: "{{ nsq_dir }}/nsq_to_file"
+nsq_to_file_channel: nsq_to_file
+nsq_to_file_filename_format: "<TOPIC>.<HOST><REV>.<DATETIME>.log"
+nsq_to_file_use_gzip: true
+nsq_to_file_gzip_level: 6
+nsq_rotate_size: 20971520
 
 use_ip: yes

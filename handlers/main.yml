@@ -18,3 +18,8 @@
   service:
     name=supervisord
     state=restarted
+
+- name: restart nsq-to-file
+  supervisorctl:
+    name=nsq-to-file
+    state=restarted
