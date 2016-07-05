@@ -35,7 +35,6 @@ nsq_nsqadmin_verbose: false
 nsq_nsqadmin_statsd_interval: 30s
 
 nsq_nsqd_server: false
-nsq_nsqd_role: nsqd
 nsq_nsqd_user: nsqd
 nsq_nsqd_group: nsqd
 nsq_nsqd_cmd: "{{ nsq_dir }}/nsqd"
@@ -83,6 +82,9 @@ nsq_nsqlookupd_broadcast_address:
 nsq_nsqlookupd_tombstone_lifetime: 45s
 nsq_nsqlookupd_verbose: false
 
+nsq_to_file_user: root
+nsq_to_file_group: root
+nsq_to_file_folder: "{{ nsq_data_path }}/backup"
 nsq_to_file_cmd: "{{ nsq_dir }}/nsq_to_file"
 nsq_to_file_channel: nsq_to_file
 nsq_to_file_filename_format: "<TOPIC>.<HOST><REV>.<DATETIME>.log"

@@ -1,11 +1,11 @@
 ---
-- name: create path for on-disk queue files
+- name: Make sure data storage foloder for nsq-to-file exists
   file:
-    path={{ nsq_nsqd_data_path }}
+    path="{{ nsq_to_file_folder }}"
+    owner="{{ nsq_to_file_user }}"
+    group="{{ nsq_to_file_group }}"
     state=directory
-    mode=0770
-    owner={{ nsq_nsqd_user }}
-    group={{ nsq_nsqd_group }}
+    mode=755
 
 - name: Add supervisor config for nsqd
   template:

@@ -1,6 +1,6 @@
 [program:nsq-to-file]
 
-user={{ nsq_nsqd_user }}
+user={{ nsq_to_file_user }}
 
 command={{ nsq_to_file_cmd }}
     -channel "{{ nsq_to_file_channel }}"
@@ -18,7 +18,7 @@ command={{ nsq_to_file_cmd }}
         -lookupd-http-address {{ host }}:{{ nsq_nsqlookupd_http_port }}
     {% endfor -%}
 {% endif %}
-    -output-dir "{{ nsq_data_path }}"
+    -output-dir "{{ nsq_to_file_folder }}"
     -rotate-size {{ nsq_rotate_size }}
 
 stdout_logfile=/var/log/nsq-to-file.log
