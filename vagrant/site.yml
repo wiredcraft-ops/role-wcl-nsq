@@ -7,7 +7,9 @@
       nsq_nsqd_server: true
       nsq_nsqlookupd_server: true
       nsq_nsq_to_file_server: true
-      use_ip: false
+      use_ip: true
+      nsq_nsqlookupd_interface: eth1
+      nsq_nsqd_interface: eth1
 
 - hosts: all
   tasks:
