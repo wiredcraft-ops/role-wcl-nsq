@@ -82,6 +82,7 @@ nsq_nsqlookupd_broadcast_address:
 nsq_nsqlookupd_tombstone_lifetime: 45s
 nsq_nsqlookupd_verbose: false
 
+nsq_nsq_to_file_server: false
 nsq_to_file_user: root
 nsq_to_file_group: root
 nsq_to_file_folder: "{{ nsq_data_path }}/backup"
