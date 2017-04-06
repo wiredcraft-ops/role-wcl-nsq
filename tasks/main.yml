@@ -15,6 +15,29 @@
     name=supervisor
     state=present
 
+# 
+# Systemd specific - gotta increase the file limit
+# systemd does not follow /etc/security/limits.conf file
+#
+- block:
+  - name: Add systemd custom config folder for supervisord
+    file:
+      path: /etc/systemd/system/supervisord.service.d
+      state: directory
+
+  - name: Set limits for supervisord
+    copy:
+      src: systemd.limits.conf
+      dest: /etc/systemd/system/supervisord.service.d/limits.conf
+
+  - name: Reload systemd
+    systemd:
+      daemon_reload: yes
+
+  when: 
+    ansible_service_mgr == 'systemd'
+
+
 - name: Start supervisor
   service:
     name=supervisord
