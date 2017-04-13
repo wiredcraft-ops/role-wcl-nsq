@@ -33,6 +33,9 @@
   - name: Reload systemd
     systemd:
       daemon_reload: yes
+      # BS service - required for Ansible < 2.4
+      name: cron
+      state: started
 
   when: 
     ansible_service_mgr == 'systemd'
