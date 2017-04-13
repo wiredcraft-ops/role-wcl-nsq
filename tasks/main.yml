@@ -55,7 +55,7 @@
     owner=root
     group=root
     mode=0755
-  with_items: nsq_binaries
+  with_items: "{{ nsq_binaries }}"
 
 - include: nsqadmin.yml
   when: nsq_nsqadmin_server

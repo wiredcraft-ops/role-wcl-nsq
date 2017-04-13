@@ -16,4 +16,4 @@
   assert:
     that:
       - "{{ item.rc }} == 0"
-  with_items: test_result.results
+  with_items: "{{ test_result.results }}"
