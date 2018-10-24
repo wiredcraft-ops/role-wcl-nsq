@@ -4,9 +4,11 @@
     nsqlookupd_http_addresses = [{% for host in groups[nsq_nsqlookupd_role] -%}"{{ host }}:{{ nsq_nsqlookupd_http_port }}"{% if not loop.last %},{% endif %}{% endfor -%}]
 {% endif -%}
 
+{% if nsq_statsd -%}
 use_statsd_prefixes = "{{ nsq_nsqadmin_use_statsd_prefixes }}"
 
 statsd_interval = "{{ nsq_nsqadmin_statsd_interval }}"
+{% endif -%}
 
 proxy_graphite = "{{ nsq_nsqadmin_proxy_graphite }}"
 

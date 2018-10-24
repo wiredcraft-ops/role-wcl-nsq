@@ -17,6 +17,7 @@ nsq_binaries:
   - bin/nsq_to_nsq
   - bin/to_nsq
 nsq_data_path: /var/spool/nsq
+nsq_statsd: false
 
 nsq_nsqadmin_server: false
 nsq_nsqadmin_user: nsqadmin

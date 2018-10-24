@@ -37,6 +37,7 @@ mem_queue_size = "{{ nsq_nsqd_mem_queue_size }}"
 
 msg_timeout = "{{ nsq_nsqd_msg_timeout }}"
 
+{% if nsq_statsd -%}
 statsd_address = "{{ nsq_nsqd_statsd_address }}"
 
 statsd_interval = "{{ nsq_nsqd_statsd_interval }}"
@@ -44,6 +45,7 @@ statsd_interval = "{{ nsq_nsqd_statsd_interval }}"
 statsd_mem_stats = "{{ nsq_nsqd_statsd_mem_stats }}"
 
 statsd_prefix = "{{ nsq_nsqd_statsd_prefix }}"
+{% endif -%}
 
 sync_every = "{{ nsq_nsqd_sync_every }}"
 
