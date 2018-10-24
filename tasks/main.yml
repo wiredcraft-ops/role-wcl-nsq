@@ -2,12 +2,12 @@
 - name: download nsq
   get_url:
     url={{ nsq_download_url }}
-    dest={{ nsq_download_dir }}/nsq.zip
+    dest={{ nsq_download_dir }}/nsq_{{ nsq_version }}_{{ nsq_go_version }}.zip
 
 - name: unarchive nsq
   unarchive:
     copy=no
-    src={{ nsq_download_dir }}/nsq.zip
+    src={{ nsq_download_dir }}/nsq_{{ nsq_version }}_{{ nsq_go_version }}.zip
     dest={{ nsq_download_dir }}
 
 - name: Install supervisor

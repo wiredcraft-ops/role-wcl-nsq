@@ -1,6 +1,6 @@
 ---
-nsq_version: 0.3.8
-nsq_go_version: go1.6.2
+nsq_version: 1.1.0
+nsq_go_version: go1.10.3
 nsq_arch: linux-amd64
 nsq_release: "nsq-{{ nsq_version }}.{{ nsq_arch }}.{{ nsq_go_version}}"
 nsq_download_url: "https://s3.amazonaws.com/bitly-downloads/nsq/nsq-{{ nsq_version }}.{{ nsq_arch }}.{{ nsq_go_version }}.tar.gz"
