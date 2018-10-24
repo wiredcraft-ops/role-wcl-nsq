@@ -6,7 +6,7 @@ Vagrant.configure('2') do |config|
   config.vm.provision 'ansible' do |ansible|
     ansible.playbook = 'vagrant/site.yml'
     ansible.limit = 'all'
-    ansible.sudo = true
+    ansible.become = true
     ansible.host_key_checking = false
     # ansible.verbose = "vvv"
     ansible.groups = {
