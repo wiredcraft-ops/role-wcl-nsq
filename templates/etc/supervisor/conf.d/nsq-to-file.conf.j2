@@ -20,6 +20,7 @@ command={{ nsq_to_file_cmd }}
 {% endif %}
     -output-dir "{{ nsq_to_file_folder }}"
     -rotate-size {{ nsq_rotate_size }}
+    --topic-pattern ".*"
 
 stdout_logfile=/var/log/nsq-to-file.log
 stderr_logfile=/var/log/nsq-to-file.log
