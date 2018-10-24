@@ -54,7 +54,7 @@ nsq_nsqd_max_msg_timeout: 15m0s
 nsq_nsqd_max_rdy_count: 2500
 nsq_nsqd_msg_timeout: 15m0s
 nsq_nsqd_statsd_address: 127.0.0.1:8125
-nsq_nsqd_statsd_interval: 30
+nsq_nsqd_statsd_interval: 30s
 nsq_nsqd_statsd_mem_stats: false
 nsq_nsqd_statsd_prefix: nsq.%s
 nsq_nsqd_sync_every: 2500
