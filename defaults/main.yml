@@ -10,7 +10,6 @@ nsq_binaries:
   - bin/nsqadmin
   - bin/nsqd
   - bin/nsqlookupd
-  - bin/nsq_pubsub
   - bin/nsq_stat
   - bin/nsq_tail
   - bin/nsq_to_file

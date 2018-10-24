@@ -5,7 +5,6 @@
     - nsqadmin
     - nsqd
     - nsqlookupd
-    - nsq_pubsub
     - nsq_stat
     - nsq_tail
     - nsq_to_file
