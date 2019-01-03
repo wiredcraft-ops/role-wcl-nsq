@@ -15,7 +15,12 @@
     name=supervisor
     state=present
 
-# 
+- name: update minfds in supervisor config
+  lineinfile:
+    path=/etc/supervisord.conf
+    regexp: '^minfds='
+    line: 'minfds=32768'
+#
 # Systemd specific - gotta increase the file limit
 # systemd does not follow /etc/security/limits.conf file
 #
